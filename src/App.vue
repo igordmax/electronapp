@@ -1,10 +1,10 @@
 <template>
-<header> verh verh verh verh verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh </header>
+<header style="background: #0dbbc1"> verh verh verh verh verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh </header>
  <div class="container">
   <div class="flex left_side_menu cd-accordion-menu">  
 <TreeComponent :model="treeData"></TreeComponent>
 </div>
-<div class="flex main_section">
+<div class="flex main_section" style="background: #a9dd2d">
 основная секция основная секция основная секция основная секция
 </div>
 <div class="flex right_side_menu">

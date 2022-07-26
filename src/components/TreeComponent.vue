@@ -57,25 +57,24 @@ export default {
 
 
 <style>
-@font-face {
-  font-family: "Roboto";
-  src: local("Roboto");
-  /*src: url("\src\components\fonts\SegoeUIVF.ttf") format("ttf");*/
-  font-weight: 600;
-}
+
 
 .cd-accordion-menu {
 padding: 0px 0px 4px;
-position: relative;
+position: absolute;
 left: 0%;
 right: 79.5%;
 top: 0.15%;
 bottom: 0%;
 /*Light/Background/Fill Color/Solid Background/Base */
-background: #F3F3F3;
+background: #f3f3f3;
 font-family: "Roboto";
-font-weight: 600;
-font-size: 14px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 line-height: 20px;
 }
 
@@ -93,9 +92,9 @@ ol, ul, li {
   position: relative;
   display: block;
   padding: 18px 18px 18px 45px;
-  /*box-shadow: inset 1px 1px #000;
+  box-shadow: inset 1px 1px rgba(0, 0, 0, 0.0803);
   
-  color: rgba(0,0,0,.8);*/
+  color: rgba(0,0,0,.8);
 }
 
 .cd-accordion-menu label::before,
@@ -125,13 +124,13 @@ content: '';
 /*adding icons*/
 .cd-accordion-menu li.folder >label> button span::before {
   content: "\1433";
-  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-family: 'Segoe Fluent Icons';
   font-weight: 900; 
 }
 .cd-accordion-menu li.folder >label> button.open span::before {
  
    content: "\142F";
-  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-family: 'Segoe Fluent Icons';
   font-weight: 900; 
 }
 
