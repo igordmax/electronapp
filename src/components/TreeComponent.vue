@@ -1,11 +1,11 @@
 <template>
 <li :class="[isFolder ? 'folder' : 'file']">
  
-   <label id=clickToAct @click="makeActive" 
+   <label id=clickToAct @click="stopClick" 
    >
-          <button >
-      <span :class="{'open': open}"
+          <button :class="{'open': open}"
       @click="toggle">
+      <span >
       </span>
      </button>
           
@@ -57,6 +57,13 @@ export default {
 
 
 <style>
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto");
+  /*src: url("\src\components\fonts\SegoeUIVF.ttf") format("ttf");*/
+  font-weight: 600;
+}
+
 .cd-accordion-menu {
 padding: 0px 0px 4px;
 position: relative;
@@ -66,6 +73,10 @@ top: 0.15%;
 bottom: 0%;
 /*Light/Background/Fill Color/Solid Background/Base */
 background: #F3F3F3;
+font-family: "Roboto";
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
 }
 
 ol, ul, li {
@@ -81,8 +92,8 @@ ol, ul, li {
 .cd-accordion-menu label, .cd-accordion-menu a {
   position: relative;
   display: block;
-  /*padding: 18px 18px 18px 45px;
-  box-shadow: inset 1px 1px #000;
+  padding: 18px 18px 18px 45px;
+  /*box-shadow: inset 1px 1px #000;
   
   color: rgba(0,0,0,.8);*/
 }
@@ -113,13 +124,13 @@ content: '';
 
 /*adding icons*/
 .cd-accordion-menu li.folder >label> button span::before {
-  content: "pp";
+  content: "\1433";
   font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
   font-weight: 900; 
 }
-.cd-accordion-menu li.folder >label> button span.open::before {
+.cd-accordion-menu li.folder >label> button.open span::before {
  
-   content: "pp";
+   content: "\142F";
   font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
   font-weight: 900; 
 }
