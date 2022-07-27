@@ -1,5 +1,5 @@
 <template>
-<header style="background: #0dbbc1"> 
+<header> 
 <HeaderMenu> </HeaderMenu>
 </header>
  <div class="container">
