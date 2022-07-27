@@ -67,7 +67,7 @@ right: 79.5%;
 top: 0.15%;
 bottom: 0%;
 /*Light/Background/Fill Color/Solid Background/Base */
-background: #FFFFFF;
+background: #F3F3F3;
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
     sans-serif;

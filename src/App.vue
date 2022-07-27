@@ -6,10 +6,10 @@
   <div class="flex left_side_menu cd-accordion-menu">  
 <TreeComponent :model="treeData"></TreeComponent>
 </div>
-<div class="flex main_section" style="background: #a9dd2d">
+<div class="flex main_section" style="background: #DDDDDD">
 основная секция основная секция основная секция основная секция
 </div>
-<div class="flex right_side_menu">
+<div class="flex right_side_menu" style="background: #F3F3F3;">
 pravo pravo pravo 
 pravo pravo pravo
 </div>
@@ -35,7 +35,7 @@ export default {
 };
 let treeData= {
 
-        name: "group",        
+     name: "LeftMenu",           
   children: [
     {
       name: "Sub Group",

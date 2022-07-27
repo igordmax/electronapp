@@ -8,13 +8,18 @@
 <label :model="menuStructure">
 {{model.menu}}
 </label>-->
-<ul class="menu">
-<li>fffffffffff   </li>
-<li>fffffffffff   </li>
-<li>fffffffffff   </li>
-<li>fffffffffff   </li>
-<li>fffffffffff   </li>
+
+    <ul class="menu">
+<li>Файл   </li>
+<li>Правка   </li>
+<li>Вставка   </li>
+<li>Вид   </li>
+<li>Окно   </li>
 </ul>
+
+<!--<li :class="[isFolder ? 'folder' : 'file']" :model="menuStructure">
+{{model.name}}
+</li>-->
 </template>
 
 <script>
@@ -23,9 +28,12 @@ export default {
   data: function () {
    // menuOpen: false;
    let menuStructure={
-    menu: "Menu",
-    info: "Info",
-    howareu: "Howeareu"
+    children: [
+    {names: "menu"},
+    {names: "info"},
+    {names: "АААААААААААААААААААААА"}
+
+    ]
    };
     return {
         menuStructure: menuStructure
@@ -33,6 +41,11 @@ export default {
   },
   methods: {
 
+  },
+  computed: {
+    isFolder: function(){
+     return this.model.children && this.model.children.length;
+    }
   }
   
 }
@@ -62,7 +75,9 @@ export default {
   ul.menu li {
     display: inline; /* Отображать как строчный элемент */
     margin-right: 0px; /* Отступ слева */
-    box-shadow: inset 1px 1px rgba(0, 0, 0, 0.0803);
+    border: 1px solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.0803);
     padding: 3px; /* Поля вокруг текста */
    }
 </style>
