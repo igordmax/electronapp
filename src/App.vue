@@ -10,8 +10,7 @@
 основная секция основная секция основная секция основная секция
 </div>
 <div class="flex right_side_menu" style="background: #F3F3F3;">
-pravo pravo pravo 
-pravo pravo pravo
+<RightSideMenu></RightSideMenu>
 </div>
 </div>
 </template>
@@ -20,11 +19,13 @@ pravo pravo pravo
 
 import TreeComponent from './components/TreeComponent.vue';
 import HeaderMenu from './components/HeaderMenu.vue';
+import RightSideMenu from './components/RightSideMenu.vue';
 export default {
   name: 'App',
   components: {
     TreeComponent,
     HeaderMenu,
+    RightSideMenu
 },
     data: function() {
     return {

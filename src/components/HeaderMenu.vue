@@ -64,6 +64,7 @@ export default {
    ul.menu {
     margin: 0; /* Обнуляем значение отступов */
     padding: 0px; /* Значение полей */
+    cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
@@ -73,11 +74,11 @@ export default {
    }
  
   ul.menu li {
-    display: inline; /* Отображать как строчный элемент */
-    margin-right: 0px; /* Отступ слева */
+    display: inline;
+    margin-right: 0px;
     border: 1px solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
-    padding: 3px; /* Поля вокруг текста */
+    padding: 3px; 
    }
 </style>
