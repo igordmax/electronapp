@@ -1,5 +1,7 @@
 <template>
-<header style="background: #0dbbc1"> verh verh verh verh verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh  verh </header>
+<header style="background: #0dbbc1"> 
+<HeaderMenu> </HeaderMenu>
+</header>
  <div class="container">
   <div class="flex left_side_menu cd-accordion-menu">  
 <TreeComponent :model="treeData"></TreeComponent>
@@ -16,12 +18,14 @@ pravo pravo pravo
 
 <script>
 
-import TreeComponent from './components/TreeComponent.vue'
+import TreeComponent from './components/TreeComponent.vue';
+import HeaderMenu from './components/HeaderMenu.vue';
 export default {
   name: 'App',
   components: {
-    TreeComponent 
-  },
+    TreeComponent,
+    HeaderMenu,
+},
     data: function() {
     return {
       treeData: treeData

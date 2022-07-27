@@ -67,8 +67,7 @@ right: 79.5%;
 top: 0.15%;
 bottom: 0%;
 /*Light/Background/Fill Color/Solid Background/Base */
-background: #f3f3f3;
-font-family: "Roboto";
+background: #FFFFFF;
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
@@ -92,8 +91,6 @@ ol, ul, li {
   position: relative;
   display: block;
   padding: 18px 18px 18px 45px;
-  box-shadow: inset 1px 1px rgba(0, 0, 0, 0.0803);
-  
   color: rgba(0,0,0,.8);
 }
 
@@ -119,6 +116,10 @@ content: '';
     border: none;
     cursor:pointer;
     overflow: hidden;       
+}
+.cd-accordion-menu li.folder {
+  box-shadow: inset 1px 1px rgba(0, 0, 0, 0.0803);
+
 }
 
 /*adding icons*/
