@@ -9,13 +9,13 @@
     <li class="rightMenu">
         <div> название селектора</div>
  <select :model="selectedItem">
- <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
+ <option v-for="item in items1" v-bind:key="item.name1">{{item.name1}}</option>
  </select>
     </li>
     <li class="rightMenu">
         <div> название селектора</div>
  <select :model="selectedItem">
- <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
+ <option v-for="item in items2" v-bind:key="item.name2">{{item.name2}}</option>
  </select>
     </li>
     <li class="rightMenu">
@@ -34,9 +34,21 @@ export default {
         return{
     items:[
         {name:'name1', id:23442},
-        {name:'name2', id:12342},
-        {name:'name3', id:256442},
-        {name:'name4', id:234768},
+        {name:'name1', id:12342},
+        {name:'name1', id:256442},
+        {name:'name1', id:234768},
+       ],
+       items1:[
+        {name1:'name2', id:234768},
+        {name1:'name2', id:234768},
+        {name1:'name2', id:234768},
+        {name1:'name2', id:234768},
+       ],
+       items2:[
+        {name2:'name3', id:234768},
+        {name2:'name3', id:234768},
+        {name2:'name3', id:234768},
+        {name2:'name3', id:234768},
        ],
        selectedItem:'поле для имени'
     }

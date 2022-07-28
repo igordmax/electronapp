@@ -10,11 +10,17 @@
 </label>-->
 
     <ul class="menu">
-<li>Файл   </li>
-<li>Правка   </li>
-<li>Вставка   </li>
-<li>Вид   </li>
-<li>Окно   </li>
+<li @click="toggle"
+:class="{'open': open}"
+:model="menuStructure">Файл</li>
+<li @click="toggle"
+:class="{'open': open}">Правка</li>
+<li @click="toggle"
+:class="{'open': open}">Вставка</li>
+<li @click="toggle"
+:class="{'open': open}">Вид</li>
+<li @click="toggle"
+:class="{'open': open}">Окно</li>
 </ul>
 
 <!--<li :class="[isFolder ? 'folder' : 'file']" :model="menuStructure">
@@ -26,7 +32,7 @@
 export default {
   name: 'HeaderMenu',
   data: function () {
-   // menuOpen: false;
+   //open: false
    let menuStructure={
     children: [
     {names: "menu"},
@@ -40,7 +46,11 @@ export default {
     }
   },
   methods: {
-
+ toggle: function (){
+  if (this.isFolder) {
+    this.open=!this.open;
+  }
+ }
   },
   computed: {
     isFolder: function(){
