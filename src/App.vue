@@ -7,7 +7,6 @@
 <TreeComponent :model="treeData"></TreeComponent>
 </div>
 <div class="flex main_section main-section-style" >
-основная секция основная секция основная секция основная секция
 <MainSection></MainSection>
 </div>
 <div class="flex right_side_menu right-side-menu-style" >

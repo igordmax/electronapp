@@ -7,8 +7,7 @@
       @click="toggle">
       <span >
       </span>
-     </button>
-          
+     </button> 
       {{ model.name }} 
 
     </label>

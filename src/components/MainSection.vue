@@ -29,5 +29,8 @@ div.element{
     background: #FFFFFF;
     border-radius: 8px;
     border-color: rgba(0, 0, 0, 0.16); 
+    text-align: center;
+    vertical-align: middle;
+    line-height: 132px;
 }
 </style>

@@ -10,9 +10,7 @@
 </label>-->
 
     <ul class="menu">
-<li @click="toggle"
-:class="{'open': open}"
-:model="menuStructure">Файл</li>
+<li>Файл</li>
 <li @click="toggle"
 :class="{'open': open}">Правка</li>
 <li @click="toggle"
@@ -90,5 +88,14 @@ export default {
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
     padding: 3px; 
+   }
+   ul.menu li:hover{
+  background: rgba(218,235,247,1);
+}
+   ul.menu li:active{
+    background: rgba(0, 0, 0, 0.0373);
+    /* Light/Fill Color/Subtle/Secondary */
+    border: 1px solid rgba(0, 0, 0, 0.0373);
+    border-radius: 4px;
    }
 </style>
