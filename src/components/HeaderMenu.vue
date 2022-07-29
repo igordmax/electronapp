@@ -1,16 +1,5 @@
 <template>
-<!--<HeaderMenu>
-    <button>menu</button>
-<button>info</button>
-<button>howareu</button>
-</HeaderMenu>
-
-<label :model="menuStructure">
-{{model.menu}}
-</label>-->
-
-    <ul class="menu">
-<li>Файл</li>
+    <!--<ul class="menu">
 <li @click="toggle"
 :class="{'open': open}">Правка</li>
 <li @click="toggle"
@@ -19,8 +8,21 @@
 :class="{'open': open}">Вид</li>
 <li @click="toggle"
 :class="{'open': open}">Окно</li>
-</ul>
-
+</ul>-->
+<div class="container">
+  <div class="menu" @click="open=!open">Файл
+  <ul class="dropown-content" v-if="open">
+    <li >текст1</li>
+     <li >текст2</li>
+  </ul>
+  </div>
+    <div class="menu" @click="open=!open">ntrcn
+  <ul class="dropown-content" v-if="open">
+    <li >текст1</li>
+     <li >текст2</li>
+  </ul>
+  </div>
+  </div>
 <!--<li :class="[isFolder ? 'folder' : 'file']" :model="menuStructure">
 {{model.name}}
 </li>-->
@@ -30,16 +32,16 @@
 export default {
   name: 'HeaderMenu',
   data: function () {
-   let menuStructure={
-    children: [
-    {names: "menu"},
-    {names: "info"},
-    {names: "АААААААААААААААААААААА"}
+   //let menuStructure={
+   // children: [
+   // {names: "menu"},
+   // {names: "info"},
+   // {names: "АААААААААААААААААААААА"}
 
-    ]
-   };
+  //  ]
+   //};
     return {
-        menuStructure: menuStructure,
+       // menuStructure: menuStructure,
         open: false
     }
   },
@@ -60,6 +62,10 @@ export default {
 </script>
 
 <style>
+  .dropdown-content{
+  /*ransform: scale(2)*/
+  position: absolute
+  }
   .headerMenuStyle{
     position: absolute;
   left: 0%;
@@ -69,8 +75,8 @@ export default {
   background: #FFFFFF;
   }
   
-   ul.menu {
-    margin: 0; /* Обнуляем значение отступов */
+  div.menu{
+margin: 0; /* Обнуляем значение отступов */
     padding: 0px; /* Значение полей */
     cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -78,12 +84,17 @@ export default {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
+      border: 1px solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.0803);
+    padding: 3px; 
+  }
  
-   }
- 
-  ul.menu li {
-    display: inline;
-    margin-right: 0px;
+  div.menu ul li {
+    /*display: inline;
+    margin-right: 0px;*/
     border: 1px solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);

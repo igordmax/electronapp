@@ -1,5 +1,5 @@
 <template>
-<header> 
+<header class="flex"> 
 <HeaderMenu> </HeaderMenu>
 </header>
  <div class="container">
