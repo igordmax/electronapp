@@ -32,7 +32,6 @@
 export default {
   name: 'HeaderMenu',
   data: function () {
-   //open: false
    let menuStructure={
     children: [
     {names: "menu"},
@@ -42,7 +41,8 @@ export default {
     ]
    };
     return {
-        menuStructure: menuStructure
+        menuStructure: menuStructure,
+        open: false
     }
   },
   methods: {

@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style>
+.right-side-menu-style {
+    background: #F3F3F3
+}
+
 select {
     height: 30px;
     width: 295px;

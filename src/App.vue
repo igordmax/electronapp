@@ -6,10 +6,11 @@
   <div class="flex left_side_menu cd-accordion-menu">  
 <TreeComponent :model="treeData"></TreeComponent>
 </div>
-<div class="flex main_section" style="background: #DDDDDD">
+<div class="flex main_section main-section-style" >
 основная секция основная секция основная секция основная секция
+<MainSection></MainSection>
 </div>
-<div class="flex right_side_menu" style="background: #F3F3F3;">
+<div class="flex right_side_menu right-side-menu-style" >
 <RightSideMenu></RightSideMenu>
 </div>
 </div>
@@ -20,12 +21,14 @@
 import TreeComponent from './components/TreeComponent.vue';
 import HeaderMenu from './components/HeaderMenu.vue';
 import RightSideMenu from './components/RightSideMenu.vue';
+import MainSection from './components/MainSection.vue';
 export default {
   name: 'App',
   components: {
     TreeComponent,
     HeaderMenu,
-    RightSideMenu
+    RightSideMenu,
+    MainSection
 },
     data: function() {
     return {
