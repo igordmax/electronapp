@@ -11,15 +11,16 @@
 </ul>-->
 <div class="container">
   <div class="menu" @click="open=!open">Файл
-  <ul class="dropown-content" v-if="open">
-    <li >текст1</li>
-     <li >текст2</li>
+  <ul class="dropdown-content" v-if="open">
+    <li>текст1</li>
+     <li>текст2</li>
   </ul>
   </div>
+  
     <div class="menu" @click="open=!open">ntrcn
-  <ul class="dropown-content" v-if="open">
-    <li >текст1</li>
-     <li >текст2</li>
+  <ul class="dropdown-content" v-if="open">
+    <li>kzkz</li>
+     <li>njgjkz</li>
   </ul>
   </div>
   </div>
@@ -50,7 +51,10 @@ export default {
   if (this.isFolder) {
     this.open=!this.open;
   }
- }
+ },
+  stopClick: function(e){
+e.preventDefault();
+},
   },
   computed: {
     isFolder: function(){
@@ -62,9 +66,28 @@ export default {
 </script>
 
 <style>
-  .dropdown-content{
+  div.container {
+position: relative;
+  }
+  ul.dropdown-content{
   /*ransform: scale(2)*/
-  position: absolute
+  position: absolute;
+  /*transform: scale(3);*/
+  z-index: 1;
+  padding-top: 16px;
+  cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -ms-flex: 1 0 0;
+    flex: 1 0 0;
+    border: 1px solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.0803);
+    padding: 3px;
+    background: #FFFFFF;
   }
   .headerMenuStyle{
     position: absolute;
@@ -76,17 +99,17 @@ export default {
   }
   
   div.menu{
-margin: 0; /* Обнуляем значение отступов */
+    margin: 0; /* Обнуляем значение отступов */
     padding: 0px; /* Значение полей */
     cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -ms-flex: 1 0 0;
-  flex: 1 0 0;
-      border: 1px solid;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -ms-flex: 1 0 0;
+    flex: 1 0 0;
+    border: 1px solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
     padding: 3px; 
