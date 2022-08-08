@@ -1,24 +1,17 @@
 <template>
-    <!--<ul class="menu">
-<li @click="toggle"
-:class="{'open': open}">Правка</li>
-<li @click="toggle"
-:class="{'open': open}">Вставка</li>
-<li @click="toggle"
-:class="{'open': open}">Вид</li>
-<li @click="toggle"
-:class="{'open': open}">Окно</li>
-</ul>-->
 <div class="container">
-  <div class="menu" @click="open=!open">Файл
-  <ul class="dropdown-content" v-if="open" @click="stopClick">
+  <div class="menu" 
+  @click="toggle"
+  @mouseout="toggle"
+  >Файл
+  <ul class="dropdown-content" v-show="this.open" >
     <li>текст1</li>
      <li>текст2</li>
   </ul>
   </div>
   
-    <div class="menu" @click="open=!open">ntrcn
-  <ul class="dropdown-content" v-if="open" @click="stopClick">
+    <div class="menu" @click="toggle">ntrcn
+  <ul class="dropdown-content" v-show="this.open" >
     <li>kzkz</li>
      <li>njgjkz</li>
   </ul>
@@ -48,9 +41,9 @@ export default {
   },
   methods: {
  toggle: function (){
-  if (this.isFolder) {
+  //if (this.isFolder) {
     this.open=!this.open;
-  }
+ // }
  },
   stopClick: function(e){
 e.preventDefault();

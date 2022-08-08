@@ -2,7 +2,7 @@
 <!--setting the opening function to the button-->
 <li :class="[isFolder ? 'folder' : 'file']">
  
-   <label id=clickToAct @click="stopClick" 
+   <label id="clickToAct" @click="stopClick" 
    >
           <button :class="{'open': open}"
       @click="toggle">
@@ -13,7 +13,7 @@
 
     </label>
     <!--drawing the tree structure-->
-    <ul v-show="open" v-if="isFolder" :class="{'open': open}">
+    <ul  v-show="open" v-if="isFolder" :class="{'open': open}">
       <TreeComponent
         v-for="(model, index) in model.children"
         :key="index"
@@ -30,11 +30,10 @@ export default {
   props: {
     model: Object
   },
-  data:{ function() {
+  data: function() {
     return {
       open: true
     };
-  }
   },
   computed: {
     isFolder: function(){
@@ -49,6 +48,12 @@ export default {
       if (this.isFolder) {
         this.open= !this.open;
       }
+    },
+    makeActive: function() {
+      document.getElementById("activeElement").id="clickToAct";
+      this.id="activeElement";
+      console.log(document.getElementById("activeElement").id);
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
     }
   },
  
@@ -78,7 +83,9 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   overflow: hidden;
 line-height: 20px;
 }
-
+#activeElement {
+ box-shadow: inset 0 0 0 1.5px rgba(13,153,255,1); 
+}
 ol, ul, li {
 	list-style: none;
   padding: 0px;
