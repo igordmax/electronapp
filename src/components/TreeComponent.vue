@@ -1,4 +1,5 @@
 <template>
+<!--setting the opening function to the button-->
 <li :class="[isFolder ? 'folder' : 'file']">
  
    <label id=clickToAct @click="stopClick" 
@@ -11,6 +12,7 @@
       {{ model.name }} 
 
     </label>
+    <!--drawing the tree structure-->
     <ul v-show="open" v-if="isFolder" :class="{'open': open}">
       <TreeComponent
         v-for="(model, index) in model.children"
@@ -28,10 +30,11 @@ export default {
   props: {
     model: Object
   },
-  data: function() {
+  data:{ function() {
     return {
       open: true
     };
+  }
   },
   computed: {
     isFolder: function(){

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-
+//including app components
 import TreeComponent from './components/TreeComponent.vue';
 import HeaderMenu from './components/HeaderMenu.vue';
 import RightSideMenu from './components/RightSideMenu.vue';
@@ -29,6 +29,7 @@ export default {
     RightSideMenu,
     MainSection
 },
+//including menu structure
     data: function() {
     return {
       treeData: treeData
@@ -36,6 +37,7 @@ export default {
   }, 
 
 };
+//menu structure
 let treeData= {
 
      name: "LeftMenu",           

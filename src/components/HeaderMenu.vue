@@ -11,14 +11,14 @@
 </ul>-->
 <div class="container">
   <div class="menu" @click="open=!open">Файл
-  <ul class="dropdown-content" v-if="open">
+  <ul class="dropdown-content" v-if="open" @click="stopClick">
     <li>текст1</li>
      <li>текст2</li>
   </ul>
   </div>
   
     <div class="menu" @click="open=!open">ntrcn
-  <ul class="dropdown-content" v-if="open">
+  <ul class="dropdown-content" v-if="open" @click="stopClick">
     <li>kzkz</li>
      <li>njgjkz</li>
   </ul>
@@ -55,11 +55,6 @@ export default {
   stopClick: function(e){
 e.preventDefault();
 },
-  },
-  computed: {
-    isFolder: function(){
-     return this.model.children && this.model.children.length;
-    }
   }
   
 }
