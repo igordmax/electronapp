@@ -7,8 +7,8 @@
    class="dropdown-content" v-show="this.open">
     <li @click="testing" 
         @mouseout="toggle"  
-        v-for="fileComponent in fileSection" v-bind:key="fileComponent.names" class="dropdown-content">
-        {{fileComponent.names}}
+        v-for="сomponent in fileSection" v-bind:key="сomponent.names" class="dropdown-content">
+        {{сomponent.names}}
     </li>
   </ul>
   </div>
@@ -17,10 +17,11 @@
     >Настройки
   <ul @click="stopClick" 
       class="dropdown-content" v-show="this.open">
-    <li @click="testing" 
+    <li id="textik"
+        @click="testing" 
         @mouseout="toggle"
-        v-for="settingComponent in settingSection" v-bind:key="settingComponent.names" class="dropdown-content">
-    {{settingComponent.names}}
+        v-for="сomponent in settingSection" v-bind:key="сomponent.names" class="dropdown-content">
+    {{сomponent.names}}
     </li>
   </ul>
   </div>  
@@ -70,8 +71,9 @@ stopClick: function(event){
 event.stopPropagation();
 },
     testing: function() {
-console.log("aaaaaaaaa"); 
-    }
+console.log("aaaaaa"); 
+//this.addEventListener('click',e => console.log(e.target))
+
   }
   
 }
