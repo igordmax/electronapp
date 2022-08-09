@@ -1,21 +1,36 @@
 <template>
 <div class="container">
   <div class="menu" 
-  @click="toggle"
-  @mouseout="toggle"
-  >Файл
-  <ul class="dropdown-content" v-show="this.open" >
-    <li>текст1</li>
-     <li>текст2</li>
+    @click.prevent="toggle"
+   >Файл
+  <ul @click="stopClick"
+   class="dropdown-content" v-show="this.open">
+    <li @click="testing" 
+        @mouseout="toggle"  
+        v-for="fileComponent in fileSection" v-bind:key="fileComponent.names" class="dropdown-content">
+        {{fileComponent.names}}
+    </li>
   </ul>
   </div>
-  
-    <div class="menu" @click="toggle">ntrcn
-  <ul class="dropdown-content" v-show="this.open" >
+  <div class="menu" 
+    @click.prevent="toggle"
+    >Настройки
+  <ul @click="stopClick" 
+      class="dropdown-content" v-show="this.open">
+    <li @click="testing" 
+        @mouseout="toggle"
+        v-for="settingComponent in settingSection" v-bind:key="settingComponent.names" class="dropdown-content">
+    {{settingComponent.names}}
+    </li>
+  </ul>
+  </div>  
+  <!--    <div class="menu" @click="toggle">ntrcn
+  <ul class="dropdown-content" v-show="this.open" :class="{'open': open}">
     <li>kzkz</li>
      <li>njgjkz</li>
   </ul>
-  </div>
+  </div> -->
+
   </div>
 <!--<li :class="[isFolder ? 'folder' : 'file']" :model="menuStructure">
 {{model.name}}
@@ -26,28 +41,37 @@
 export default {
   name: 'HeaderMenu',
   data: function () {
-   //let menuStructure={
-   // children: [
-   // {names: "menu"},
-   // {names: "info"},
-   // {names: "АААААААААААААААААААААА"}
-
-  //  ]
-   //};
+  
     return {
-       // menuStructure: menuStructure,
-        open: false
+    open: false,
+    fileSection: [
+      {names: "menu"},
+      {names: "info"},
+      {names: "АААААААААААААААААААААА"}
+    ],
+    settingSection: [
+      {names: "menu1"},
+      {names: "info1"},
+      {names: "ААА1ААА1АА1АА"}
+    ],
     }
   },
   methods: {
  toggle: function (){
-  //if (this.isFolder) {
+  this.isActive= true;
+  if (this.isActive) {
     this.open=!this.open;
- // }
+  }
  },
-  stopClick: function(e){
-e.preventDefault();
+ // stopClick: function(e){
+//e.preventDefault();
+//},
+stopClick: function(event){
+event.stopPropagation();
 },
+    testing: function() {
+console.log("aaaaaaaaa"); 
+    }
   }
   
 }
@@ -111,10 +135,10 @@ position: relative;
     border-color: rgba(0, 0, 0, 0.0803);
     padding: 3px; 
    }
-   ul.menu li:hover{
+   ul.dropdown-content li:hover{
   background: rgba(218,235,247,1);
 }
-   ul.menu li:active{
+   ul.dropdown-content li:active{
     background: rgba(0, 0, 0, 0.0373);
     /* Light/Fill Color/Subtle/Secondary */
     border: 1px solid rgba(0, 0, 0, 0.0373);
