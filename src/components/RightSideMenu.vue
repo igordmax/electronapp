@@ -13,9 +13,15 @@
  </select>
     </li>
     <li class="rightMenu">
-        <div> название селектора</div>
+        <div> название селектора 3</div>
  <select :model="selectedItem">
- <option v-for="item in items2" v-bind:key="item.name2">{{item.name2}}</option>
+ <option 
+     v-for="item in items2" 
+     v-bind:key="item.name2"
+     @click="testing(item)"
+     >
+     {{item.name2}}
+ </option>
  </select>
     </li>
     <li class="rightMenu">
@@ -52,6 +58,11 @@ export default {
        ],
        selectedItem:'поле для имени'
     }
+    },
+    methods: {
+    testing: function(e) {
+      console.log(e); 
+      }         
     }
 }
 </script>

@@ -5,10 +5,11 @@
    >Файл
   <ul @click="stopClick"
    class="dropdown-content" v-show="this.open">
-    <li @click="testing" 
+    <li
+        @click="testing(component.ident)"  
         @mouseout="toggle"  
-        v-for="сomponent in fileSection" v-bind:key="сomponent.names" class="dropdown-content">
-        {{сomponent.names}}
+        v-for="component in fileSection" v-bind:key="component.names" class="dropdown-content">
+        {{component.names}}
     </li>
   </ul>
   </div>
@@ -17,11 +18,13 @@
     >Настройки
   <ul @click="stopClick" 
       class="dropdown-content" v-show="this.open">
-    <li id="textik"
-        @click="testing" 
+    <li
         @mouseout="toggle"
-        v-for="сomponent in settingSection" v-bind:key="сomponent.names" class="dropdown-content">
-    {{сomponent.names}}
+        v-for="component in settingSection" 
+        v-bind:key="component.names" 
+        @click="testing(component.ident)" 
+        class="dropdown-content">
+    {{component.names}}
     </li>
   </ul>
   </div>  
@@ -46,23 +49,20 @@ export default {
     return {
     open: false,
     fileSection: [
-      {names: "menu"},
-      {names: "info"},
-      {names: "АААААААААААААААААААААА"}
+      {names: "menu", ident:1},
+      {names: "info", ident:2},
+      {names: "АААААААААААААААААААААА", ident:3}
     ],
     settingSection: [
-      {names: "menu1"},
-      {names: "info1"},
-      {names: "ААА1ААА1АА1АА"}
+      {names: "menu1", ident:1},
+      {names: "info1", ident:2},
+      {names: "ААА1ААА1АА1АА", ident:3}
     ],
     }
   },
   methods: {
  toggle: function (){
-  this.isActive= true;
-  if (this.isActive) {
     this.open=!this.open;
-  }
  },
  // stopClick: function(e){
 //e.preventDefault();
@@ -70,12 +70,11 @@ export default {
 stopClick: function(event){
 event.stopPropagation();
 },
-    testing: function() {
-console.log("aaaaaa"); 
+    testing: function(e) {
+console.log(e); 
 //this.addEventListener('click',e => console.log(e.target))
-
-  }
-  
+  } 
+}
 }
 </script>
 
