@@ -4,7 +4,7 @@
  
    <label id="clickToAct" @click="stopClick" 
    >
-          <button :class="{'open': open}"
+          <button :class="{open: open}"
       @click="toggle">
       <span >
       </span>
@@ -13,7 +13,7 @@
 
     </label>
     <!--drawing the tree structure-->
-    <ul  v-show="open" v-if="isFolder" :class="{'open': open}">
+    <ul  v-show="open" v-if="isFolder" :class="{open: open}">
       <TreeComponent
         v-for="(model, index) in model.children"
         :key="index"

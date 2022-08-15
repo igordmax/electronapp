@@ -29,6 +29,18 @@
  <select :model="selectedItem">
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
  </select>
+    </li >
+        <li class="rightMenu, flexRightMenuItem">
+        <div> название селектора
+ <select class="multipleSelect" :model="selectedItem" size="1" multiple>
+ <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
+ </select>
+ </div>
+         <div> название селектора
+ <select class="multipleSelect" :model="selectedItem" size="1" multiple>
+ <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
+ </select>
+ </div>
     </li>
  </ul>
 </template>
@@ -56,6 +68,7 @@ export default {
         {name2:'name3', id:234768},
         {name2:'name3', id:234768},
        ],
+
        selectedItem:'поле для имени'
     }
     },
@@ -77,7 +90,31 @@ select {
     width: 295px;
     border-radius: 3px;
     border-color: rgba(0, 0, 0, 0.16);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
     
+}
+
+li.flexRightMenuItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+select.multipleSelect {
+    height: 30px;
+    width: 140px;
+    border-radius: 3px;
+    border-color: rgba(0, 0, 0, 0.16);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px; 
 }
 
 li.rightMenu {

@@ -63,6 +63,7 @@ export default {
   methods: {
  toggle: function (){
     this.open=!this.open;
+
  },
  // stopClick: function(e){
 //e.preventDefault();
@@ -87,7 +88,7 @@ position: relative;
   position: absolute;
   /*transform: scale(3);*/
   z-index: 1;
-  padding-top: 16px;
+  /*padding-top: 16px;*/
   cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
@@ -99,7 +100,7 @@ position: relative;
     border: 1px solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
-    padding: 3px;
+    /*padding: 3px;*/
     background: #FFFFFF;
   }
   .headerMenuStyle{
