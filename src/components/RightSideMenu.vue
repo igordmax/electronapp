@@ -30,7 +30,7 @@
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
  </select>
     </li >
-        <li class="rightMenu, flexRightMenuItem">
+        <li class="flexRightMenuItem rightMenu">
         <div> название селектора
  <select class="multipleSelect" :model="selectedItem" size="1" multiple>
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>

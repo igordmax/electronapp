@@ -1,5 +1,5 @@
 <template>
-<header class="flex"> 
+<header class="flex header_menu" > 
 <HeaderMenu> </HeaderMenu>
 </header>
  <div class="container">
@@ -66,10 +66,16 @@ let treeData= {
 .container {
 display: -ms-flexbox;
 display: flex;
+position: relative;
+/*width: 1366px;
+height: 768px;*/
 }
 .flex{
   position: relative;
     width: 100%;
+}
+.header_menu {
+ max-height: 48px;
 }
 .left_side_menu {
   -ms-flex: 1 0 0;
