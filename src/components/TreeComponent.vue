@@ -6,8 +6,8 @@
    >
           <button :class="{open: open}"
       @click="toggle">
-      <span >
-      </span>
+      <!--<span >
+      </span>-->
      </button> 
       {{ model.name }} 
 
@@ -42,12 +42,15 @@ export default {
   },
   methods: {
     stopClick: function (e) {
-      e.preventDefault();
+      e.preventDefault();   
+      console.log(e.target.tagName);
+
     },
     toggle: function () {
       if (this.isFolder) {
         this.open= !this.open;
       }
+      //alert(event.target.tagName)
     },
     makeActive: function() {
       document.getElementById("activeElement").id="clickToAct";
@@ -119,25 +122,25 @@ content: '';
   cursor: pointer;
 }
 
-.cd-accordion-menu button {     
+/*.cd-accordion-menu button {     
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
     overflow: hidden;       
-}
+}*/
 .cd-accordion-menu li.folder {
   box-shadow: inset 1px 1px rgba(0, 0, 0, 0.0803);
 
 }
 
 /*adding icons*/
-.cd-accordion-menu li.folder >label> button span::before {
+.cd-accordion-menu li.folder >label> button::before {
   content: "\1433";
   font-family: 'Segoe Fluent Icons';
   font-weight: 900; 
 }
-.cd-accordion-menu li.folder >label> button.open span::before {
+.cd-accordion-menu li.folder >label> button.open::before {
  
    content: "\142F";
   font-family: 'Segoe Fluent Icons';

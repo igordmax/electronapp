@@ -1,13 +1,35 @@
 <template>
     <div class="container">
-    <div class="element"> little element</div>
+    <div class="element">
+      <div class="elementContainer">
+        <div
+       class="inputOutputStyle"
+       v-for="item in controllerProperties" 
+       v-bind:key="item.controllerInputName" >
+       {{item.controllerInputName}}
+        </div> 
+      </div>
+    </div>
     <div class="element"> 2nd little element</div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'MainSection'
+  name: 'MainSection',
+  data: function() {
+    return {
+  controllerProperties: [
+        {controllerInputName: "1"},
+        {controllerInputName: "2"},
+        {controllerOutputName: "com1"},
+        {controllerOutputName: "com2"},
+        {controllerOutputName: "com3"},
+        {controllerName: "sdfsdds"},
+        {controllerPinNames: "D10000-D54544"},
+      ] 
+    }
+  }
 }
 </script>
 
@@ -16,9 +38,22 @@ export default {
 display: -ms-flexbox;
 display: flex;
 }
+
+.elementContainer {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+} 
 .main-section-style{
     background: #DDDDDD;
 }
+.inputOutputStyle {
+    width: 50px;
+    height: 16px;
+    background: #EAEAEA;
+    border-radius: 4px;
+}
+
 div.element{
     position: relative;
     /*width: 132px;*/
@@ -29,8 +64,8 @@ div.element{
     background: #FFFFFF;
     border-radius: 8px;
     border-color: rgba(0, 0, 0, 0.16); 
-    text-align: center;
+    /*text-align: center;
     vertical-align: middle;
-    line-height: 132px;
+    line-height: 132px;*/
 }
 </style>

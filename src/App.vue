@@ -31,7 +31,8 @@ export default {
 },
 //including menu structure
     data: function() {
-    return {
+  
+  return {
       treeData: treeData
     }
   }, 
