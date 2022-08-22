@@ -5,7 +5,8 @@
         <div
        class="inputOutputStyle"
        v-for="item in controllerProperties" 
-       v-bind:key="item.controllerInputName" >
+       v-bind:key="item.controllerInputName"
+       @click="toggle(item)" >
        {{item.controllerInputName}}
         </div> 
       </div>
@@ -29,7 +30,13 @@ export default {
         {controllerPinNames: "D10000-D54544"},
       ] 
     }
+  },
+  methods: {
+    toggle: function(e) {
+      console.log(e); 
+      }         
   }
+  
 }
 </script>
 

@@ -2,9 +2,9 @@
 <!--setting the opening function to the button-->
 <li :class="[isFolder ? 'folder' : 'file']">
  
-   <label id="clickToAct" @click="stopClick" 
+   <label id="clickToAct"  @click="stopClick"
    >
-          <button :class="{open: open}"
+      <button :class="{open: open}"
       @click="toggle">
       <!--<span >
       </span>-->
