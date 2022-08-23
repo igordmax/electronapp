@@ -9,9 +9,12 @@
        @click="toggle(item)" >
        {{item.controllerInputName}}
         </div> 
+        
       </div>
     </div>
-    <div class="element"> 2nd little element</div>
+    <div class="element"> 2nd little element
+      {{InputNameFilter}}
+    </div>
     </div>
 </template>
 
@@ -35,6 +38,11 @@ export default {
     toggle: function(e) {
       console.log(e); 
       }         
+  },
+  computed: {
+    InputNameFilter () {
+      return this.controllerProperties.controllerInputName
+    }
   }
   
 }

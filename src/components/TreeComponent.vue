@@ -102,7 +102,7 @@ ol, ul, li {
 .cd-accordion-menu label, .cd-accordion-menu a {
   position: relative;
   display: block;
-  padding: 18px 18px 18px 45px;
+  padding: 18px 18px 18px 30px;
   color: rgba(0,0,0,.8);
 }
 
@@ -122,13 +122,14 @@ content: '';
   cursor: pointer;
 }
 
-/*.cd-accordion-menu button {     
+.cd-accordion-menu button {     
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
-    overflow: hidden;       
-}*/
+    overflow: hidden;
+    padding: 0px 0px 0px 15px;       
+}
 .cd-accordion-menu li.folder {
   box-shadow: inset 1px 1px rgba(0, 0, 0, 0.0803);
 

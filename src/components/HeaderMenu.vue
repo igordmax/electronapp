@@ -6,12 +6,14 @@
     @click="testing(component.ident)" 
   >
     {{component.sectionName}}
-    <li class="dropdown-content"
-      v-show="this.open"
-      v-for="item in sectionsData" 
+    <ul>
+      <li class="dropdown-content"
+        v-show="this.open"
+        v-for="item in sectionsData" 
       v-bind:key="item.names">
       {{item.names}}
       </li>
+    </ul>
   </ul>
  <!-- <div class="menu" 
     @click.prevent="toggle"
