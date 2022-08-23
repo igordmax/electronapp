@@ -42,12 +42,19 @@
  </select>
  </div>
     </li>
+    <li>
+        <UpDownSelect></UpDownSelect>
+    </li>
  </ul>
 </template>
 
 <script>
+import UpDownSelect from './UpDownSelect.vue';
 export default {
     name: 'RightSideMenu',
+    components: {
+      UpDownSelect
+    },
     data:function() {
         return{
     items:[
