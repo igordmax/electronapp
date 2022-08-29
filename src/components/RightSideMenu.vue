@@ -32,19 +32,19 @@
     </li >
         <li class="flexRightMenuItem rightMenu">
         <div> название селектора
- <select class="multipleSelect" :model="selectedItem" size="1" multiple>
+ <!--<select class="multipleSelect" :model="selectedItem" size="1" multiple>
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
- </select>
+ </select>-->
+         <UpDownSelect></UpDownSelect>
  </div>
          <div> название селектора
- <select class="multipleSelect" :model="selectedItem" size="1" multiple>
+ <!--<select class="multipleSelect" :model="selectedItem" size="1" multiple>
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
- </select>
+ </select>-->
+        <UpDownSelect></UpDownSelect> 
  </div>
     </li>
-    <li>
-        <UpDownSelect></UpDownSelect>
-    </li>
+
  </ul>
 </template>
 

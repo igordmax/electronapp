@@ -10,7 +10,7 @@
       <li class="dropdown-content"
         v-show="this.open"
         v-for="item in sectionsData" 
-      v-bind:key="item.names">
+        v-bind:key="item.names">
       {{item.names}}
       </li>
     </ul>
@@ -105,7 +105,6 @@ this.open=!this.open;
 position: relative;
   }
   li.dropdown-content{
-  /*ransform: scale(2)*/
   position: absolute;
   /*transform: scale(3);*/
   z-index: 1;

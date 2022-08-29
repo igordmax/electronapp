@@ -1,28 +1,61 @@
 <template>
   <div class="ScrollSelect">
-    <label class="UpDownTextSection">dsfsdf</label>
-    <button class="UpButtonStyle"></button>
-    <button class="DownButtonStyle"></button>
+    <label 
+    id="UpDownContent" 
+    class="UpDownTextSection">
+    </label>
+    <button
+    @click="scrollUp" 
+    class="UpButtonStyle">
+      <div 
+        style="font-size: 20px;
+        margin: auto;
+        text-align: center;">
+      &#708;</div>
+    </button>
+    <button
+    @click="scrollDown"
+    class="DownButtonStyle">
+      <div
+        style="font-size: 20px;
+        margin: auto;
+        text-align: center;">
+      &#709;</div>
+     </button>
   </div>
 </template>
 
 <script>
+let i=1;
+
 export default {
   name: 'UpDownSelect',
   data: function() {
    return{ 
-    sectionsData: [
-      {names: "10"},
-      {names: "20"},
-      {names: "30"},
-      {names: "40"},
-      {names: "50"}
+    sectionsData: [10, 20, 30, 40, 50
+      //{names: "10"},
+      //{names: "20"},
+      //{names: "30"},
+      //{names: "40"},
+      //{names: "50"}
         ]
       }       
   },
   methods: {
-    scroll: {
+    scrollUp: function() {
+      if (i<(this.sectionsData.length-1)){ 
+      i++;
+      console.log(this.sectionsData[i]);
+      document.getElementById("UpDownContent").innerHTML=this.sectionsData[i];
+      }
 
+    },
+    scrollDown: function() {
+      if (i>0) {
+      i--;
+      console.log(this.sectionsData[i]);
+      document.getElementById("UpDownContent").innerHTML=this.sectionsData[i];
+      }
     }
   }
 }
@@ -37,6 +70,7 @@ export default {
     position: relative;
     height: 30px;
     width: 140px;
+    border-width: 2px solid;
     border-radius: 3px;
     border-color: rgba(0, 0, 0, 0.16);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -52,15 +86,26 @@ export default {
     margin: auto;
 }
 .UpButtonStyle {
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: none;
+   cursor:pointer;
+   overflow: hidden;
    width: 16px;
    height: 16px;
    margin: 7px 10px 7px 10px;
-   content: "\25B2";
+  /* content: "\25B2";*/
 }
+
 .DownButtonStyle {
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: none;
+   cursor:pointer;
+   overflow: hidden;
    width: 16px;
    height: 16px;
    margin: 7px 10px 7px 10px; 
-   content: "\25BC";   
+   /*content: "\25BC";  */ 
 }
 </style>
