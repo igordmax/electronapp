@@ -5,9 +5,9 @@
         <div
        class="inputOutputStyle"
        v-for="item in controllerProperties" 
-       v-bind:key="item.controllerInputName"
+       v-bind:key="item.controllerInputName1"
        @click="toggle(item)" >
-       {{item.controllerInputName}}
+       {{item.controllerInputName1}}
         </div> 
         
       </div>
@@ -23,15 +23,13 @@ export default {
   name: 'MainSection',
   data: function() {
     return {
-  controllerProperties: [
-        {controllerInputName: "1"},
-        {controllerInputName: "2"},
-        {controllerOutputName: "com1"},
-        {controllerOutputName: "com2"},
-        {controllerOutputName: "com3"},
-        {controllerName: "sdfsdds"},
-        {controllerPinNames: "D10000-D54544"},
-      ] 
+  controllerProperties: {
+        controllerInputName1: "1" ,
+        controllerInputName2: "2" ,
+        controllerOutputName: "com1",
+        controllerName: "sdfsdds",
+        controllerPinNames: "D10000-D54544"
+    } 
     }
   },
   methods: {
@@ -41,6 +39,7 @@ export default {
   },
   computed: {
     InputNameFilter () {
+
       return this.controllerProperties.controllerInputName
     }
   }

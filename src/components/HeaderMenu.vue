@@ -3,17 +3,18 @@
   <ul class ="menu dropdown-content"
     v-for="component in upperMenuSection" 
     v-bind:key="component.sectionName"
-    @click="testing(component.ident)" 
+    @click="testing(component.ident)"
+
   >
     {{component.sectionName}}
-    <ul>
+    
       <li class="dropdown-content"
-        v-show="this.open"
+        v-show="this.open && item.ident==component.ident"
         v-for="item in sectionsData" 
         v-bind:key="item.names">
       {{item.names}}
       </li>
-    </ul>
+    
   </ul>
  <!-- <div class="menu" 
     @click.prevent="toggle"
@@ -91,10 +92,9 @@ event.stopPropagation();
 },
     testing: function(e) {
 console.log(e);
-if (e=="settings")
+//if (e=="settings")
 //alert ('aaaaaaaaaaaaaaaaaaa')
 this.open=!this.open; 
-//this.addEventListener('click',e => console.log(e.target))
   } 
 }
 }
@@ -105,7 +105,7 @@ this.open=!this.open;
 position: relative;
   }
   li.dropdown-content{
-  position: absolute;
+  position: relative;
   /*transform: scale(3);*/
   z-index: 1;
   /*padding-top: 16px;*/
