@@ -1,16 +1,23 @@
 <template>
     <div class="container">
-    <div class="element">
+    <div class="element"
+       v-for="controller in ControllerNamesMassive" 
+       v-bind:key="controller.ControllerNamesMassive"
+       @click="makeActive(controller)" >
       <div class="elementContainer">
         <div
        class="inputOutputStyle"
        v-for="item in controllerProperties" 
-       v-bind:key="item.controllerInputName1"
+       v-bind:key="item.controllerInputName"
+       v-show="item.controllerInputName && item.controllerName==controller"
        @click="toggle(item)" >
-       {{item.controllerInputName1}}
+       {{item.controllerInputName}}
         </div> 
-        
       </div>
+
+      <div class="elementContainer">
+      </div>
+
     </div>
     <div class="element"> 2nd little element
       {{InputNameFilter}}
@@ -23,19 +30,27 @@ export default {
   name: 'MainSection',
   data: function() {
     return {
-  controllerProperties: {
-        controllerInputName1: "1" ,
-        controllerInputName2: "2" ,
-        controllerOutputName: "com1",
-        controllerName: "sdfsdds",
-        controllerPinNames: "D10000-D54544"
-    } 
+      ControllerNamesMassive: [
+        "FirstController", "SecondController"
+      ],
+      controllerProperties: [
+        {controllerInputName: "1", controllerName: "FirstController"},
+        {controllerInputName: "2", controllerName: "FirstController"},
+        {controllerPinNames: "D10000-D54544",controllerName: "FirstController"},
+        {controllerInputName: "1", controllerName: "SecondController"},
+        {controllerInputName: "2", controllerName: "SecondController"},
+        {controllerPinNames: "A10000-A54544",controllerName: "SecondController"},
+      ] 
     }
   },
   methods: {
     toggle: function(e) {
       console.log(e); 
-      }         
+      },
+    makeActive: function(e) {
+      console.log(e);
+      //this.classList.add('activeModule'); 
+      }          
   },
   computed: {
     InputNameFilter () {
@@ -66,14 +81,20 @@ display: flex;
     height: 16px;
     background: #EAEAEA;
     border-radius: 4px;
+    margin: 4px;
+    text-align: center;
 }
-
+.activeModule {
+    border: 3px solid rgba(0, 95, 184, 0.8);
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;  
+}
 div.element{
     position: relative;
     /*width: 132px;*/
-    height: 132px;
-    min-width: 132px;
-    max-width: 132px;
+    height: 108px;
+    min-width: 112px;
+    max-width: 112px;
     margin:30px 25px;
     background: #FFFFFF;
     border-radius: 8px;

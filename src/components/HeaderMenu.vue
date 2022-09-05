@@ -9,7 +9,7 @@
     {{component.sectionName}}
     
       <li class="dropdown-content"
-        v-show="this.open && item.ident==component.ident"
+        v-show="component.isOpen==false && item.ident==component.ident"
         v-for="item in sectionsData" 
         v-bind:key="item.names">
       {{item.names}}
@@ -63,10 +63,9 @@ export default {
   data: function () {
   
     return {
-    open: false,
     upperMenuSection: [
-      {sectionName: "settings", ident:"settings"},
-      {sectionName: "functions", ident:"functions"}
+      {sectionName: "settings", ident:"settings", isOpen: true},
+      {sectionName: "functions", ident:"functions", isOpen: false}
   ],
 
     sectionsData: [
@@ -81,7 +80,7 @@ export default {
   },
   methods: {
  toggle: function (){
-    this.open=!this.open;
+    //this.open=!this.open;
 
  },
  // stopClick: function(e){
@@ -94,7 +93,14 @@ event.stopPropagation();
 console.log(e);
 //if (e=="settings")
 //alert ('aaaaaaaaaaaaaaaaaaa')
-this.open=!this.open; 
+//if (e.isOpen==""){
+ // e.isOpen="true";
+ // console.log(e.isOpen);
+//} else {
+ // e.isOpen="";
+//}
+ this.upperMenuSection.isOpen=!this.upperMenuSection.isOpen;
+ console.log(this.upperMenuSection.isOpen);
   } 
 }
 }
