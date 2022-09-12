@@ -21,7 +21,6 @@
         </div> 
       </div>
     </div>
-    {{temporaryElement}}
   </div>
 </template>
 
@@ -54,11 +53,13 @@ export default {
     userAdd: function() {
       this.controllerProperties.push({
         controllerInputName: this.controllerProperties.controllerInputName,
-        controllerName: this.controllerProperties.controllerName
+        controllerName: this.controllerProperties.controllerName,
        }
       );
-      this.$forceUpdate();
+      if(this.ControllerNamesMassive.indexOf(this.controllerProperties.controllerName) == -1) {
+      this.ControllerNamesMassive.push(this.controllerProperties.controllerName)
       console.log(this.controllerProperties);
+      }
     }          
   },
   computed: {

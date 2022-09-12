@@ -4,18 +4,16 @@
     v-for="component in temporaryUpperMenuSection" 
     v-bind:key="component.sectionName"
     @click="testing(component.ident)"
-
   >
     {{component.sectionName}}
-    {{component.isOpen}}
     
       <li class="dropdown-content"
-        v-show="component.isOpen==true && item.ident==component.ident"
-        v-for="item in sectionsData" 
+        v-show="component.isOpen && item.ident==component.ident"
+        v-for="item in temporarySectionsData" 
         v-bind:key="item.names">
       {{item.names}}
       </li>
-    
+    <div v-show="component.isOpen">sdfsdf</div>
   </ul>
   </div>
 </template>
@@ -26,7 +24,7 @@ export default {
   data: function () {
     return {
     upperMenuSection: [
-      {sectionName: "settings", ident:"settings", isOpen: false},
+      {sectionName: "settings", ident:"settings", isOpen: true},
       {sectionName: "functions", ident:"functions", isOpen: false}
   ],
 
@@ -43,7 +41,6 @@ export default {
   methods: {
  toggle: function (){
     //this.open=!this.open;
-
  },
  // stopClick: function(e){
 //e.preventDefault();
@@ -58,8 +55,11 @@ console.log(e);
   } 
 },
   computed: {
-    temporaryUpperMenuSection(){
+    temporaryUpperMenuSection () {
       return this.upperMenuSection
+    },
+    temporarySectionsData (){
+      return this.sectionsData
     } 
   }
 }
