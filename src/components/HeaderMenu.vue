@@ -1,70 +1,32 @@
 <template>
 <div class="container">
   <ul class ="menu dropdown-content"
-    v-for="component in upperMenuSection" 
+    v-for="component in temporaryUpperMenuSection" 
     v-bind:key="component.sectionName"
     @click="testing(component.ident)"
 
   >
     {{component.sectionName}}
+    {{component.isOpen}}
     
       <li class="dropdown-content"
-        v-show="component.isOpen==false && item.ident==component.ident"
+        v-show="component.isOpen==true && item.ident==component.ident"
         v-for="item in sectionsData" 
         v-bind:key="item.names">
       {{item.names}}
       </li>
     
   </ul>
- <!-- <div class="menu" 
-    @click.prevent="toggle"
-   >Файл
-  <ul @click="stopClick"
-   class="dropdown-content" v-show="this.open">
-    <li
-        @click="testing(component.ident)"  
-        @mouseout="toggle"  
-        v-for="component in fileSection" v-bind:key="component.names" class="dropdown-content">
-        {{component.names}}
-    </li>
-  </ul>
   </div>
-  <div class="menu" 
-    @click.prevent="toggle"
-    >Настройки
-  <ul @click="stopClick" 
-      class="dropdown-content" v-show="this.open">
-    <li
-        @mouseout="toggle"
-        v-for="component in settingSection" 
-        v-bind:key="component.names" 
-        @click="testing(component.ident)" 
-        class="dropdown-content">
-    {{component.names}}
-    </li>
-  </ul>
-  </div>-->  
-  <!--    <div class="menu" @click="toggle">ntrcn
-  <ul class="dropdown-content" v-show="this.open" :class="{'open': open}">
-    <li>kzkz</li>
-     <li>njgjkz</li>
-  </ul>
-  </div> -->
-
-  </div>
-<!--<li :class="[isFolder ? 'folder' : 'file']" :model="menuStructure">
-{{model.name}}
-</li>-->
 </template>
 
 <script>
 export default {
   name: 'HeaderMenu',
   data: function () {
-  
     return {
     upperMenuSection: [
-      {sectionName: "settings", ident:"settings", isOpen: true},
+      {sectionName: "settings", ident:"settings", isOpen: false},
       {sectionName: "functions", ident:"functions", isOpen: false}
   ],
 
@@ -91,18 +53,15 @@ event.stopPropagation();
 },
     testing: function(e) {
 console.log(e);
-//if (e=="settings")
-//alert ('aaaaaaaaaaaaaaaaaaa')
-//if (e.isOpen==""){
- // e.isOpen="true";
- // console.log(e.isOpen);
-//} else {
- // e.isOpen="";
-//}
  this.upperMenuSection.isOpen=!this.upperMenuSection.isOpen;
  console.log(this.upperMenuSection.isOpen);
   } 
-}
+},
+  computed: {
+    temporaryUpperMenuSection(){
+      return this.upperMenuSection
+    } 
+  }
 }
 </script>
 

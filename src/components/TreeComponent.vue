@@ -16,6 +16,7 @@
     <ul  v-show="open" v-if="isFolder" :class="{open: open}">
       <TreeComponent
         v-for="(model, index) in model.children"
+        @click="makeActive(model.name)"
         :key="index"
         :model="model">
       </TreeComponent>
@@ -52,11 +53,11 @@ export default {
       }
       //alert(event.target.tagName)
     },
-    makeActive: function() {
-      document.getElementById("activeElement").id="clickToAct";
-      this.id="activeElement";
-      console.log(document.getElementById("activeElement").id);
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
+    makeActive: function(e) {
+      //document.getElementById("activeElement").id="clickToAct";
+      //this.classList.add('activeElement');
+      //console.log(this.classList);
+      console.log(e);
     }
   },
  
@@ -86,7 +87,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   overflow: hidden;
 line-height: 20px;
 }
-#activeElement {
+.activeElement {
  box-shadow: inset 0 0 0 1.5px rgba(13,153,255,1); 
 }
 ol, ul, li {

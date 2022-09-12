@@ -1,28 +1,28 @@
 <template>
-    <div class="container">
+  <div class="container">
+      <div>
+        <input v-model="controllerProperties.controllerInputName" />
+        <input v-model="controllerProperties.controllerName" />
+        <button  v-on:click="userAdd">Add</button>
+      </div>
     <div class="element"
-       v-for="controller in ControllerNamesMassive" 
-       v-bind:key="controller.ControllerNamesMassive"
+       v-for="controller in temporaryNamesMassive" 
+       v-bind:key="controller"
        @click="makeActive(controller)" >
+       {{controller}}
       <div class="elementContainer">
         <div
        class="inputOutputStyle"
-       v-for="item in controllerProperties" 
+       v-for="item in temporaryElement" 
        v-bind:key="item.controllerInputName"
        v-show="item.controllerInputName && item.controllerName==controller"
        @click="toggle(item)" >
        {{item.controllerInputName}}
         </div> 
       </div>
-
-      <div class="elementContainer">
-      </div>
-
     </div>
-    <div class="element"> 2nd little element
-      {{InputNameFilter}}
-    </div>
-    </div>
+    {{temporaryElement}}
+  </div>
 </template>
 
 <script>
@@ -50,12 +50,26 @@ export default {
     makeActive: function(e) {
       console.log(e);
       //this.classList.add('activeModule'); 
-      }          
+      },
+    userAdd: function() {
+      this.controllerProperties.push({
+        controllerInputName: this.controllerProperties.controllerInputName,
+        controllerName: this.controllerProperties.controllerName
+       }
+      );
+      this.$forceUpdate();
+      console.log(this.controllerProperties);
+    }          
   },
   computed: {
+    temporaryElement() {
+      return this.controllerProperties;
+    },
+    temporaryNamesMassive() {
+      return this.ControllerNamesMassive;
+    },
     InputNameFilter () {
-
-      return this.controllerProperties.controllerInputName
+      return this.controllerProperties.controllerInputName;
     }
   }
   

@@ -35,13 +35,13 @@
  <!--<select class="multipleSelect" :model="selectedItem" size="1" multiple>
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
  </select>-->
-         <UpDownSelect></UpDownSelect>
+         <UpDownSelect1></UpDownSelect1>
  </div>
          <div> название селектора
  <!--<select class="multipleSelect" :model="selectedItem" size="1" multiple>
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
  </select>-->
-        <UpDownSelect></UpDownSelect> 
+        <UpDownSelect2></UpDownSelect2> 
  </div>
     </li>
 
@@ -49,11 +49,13 @@
 </template>
 
 <script>
-import UpDownSelect from './UpDownSelect.vue';
+import UpDownSelect1 from './UpDownSelect1.vue';
+import UpDownSelect2 from './UpDownSelect2.vue';
 export default {
     name: 'RightSideMenu',
     components: {
-      UpDownSelect
+      UpDownSelect2,
+      UpDownSelect1
     },
     data:function() {
         return{

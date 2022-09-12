@@ -29,7 +29,7 @@
 let i=1;
 
 export default {
-  name: 'UpDownSelect',
+  name: 'UpDownSelect1',
   data: function() {
    return{ 
     sectionsData: [10, 20, 30, 40, 50
