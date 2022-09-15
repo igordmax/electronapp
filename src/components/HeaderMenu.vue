@@ -3,17 +3,16 @@
   <ul class ="menu dropdown-content"
     v-for="(component) in temporaryUpperMenuSection" 
     v-bind:key="component.sectionName"
-    @click="testing(component.ident)"
+    @click="toggle(component)"
   >
     {{component.sectionName}}
     
       <li class="dropdown-content"
-        v-show="component.isOpen && item.ident==component.ident"
+        v-show="component.open && item.ident==component.ident"
         v-for="item  in temporarySectionsData" 
         v-bind:key="item.names">
       {{item.names}}
       </li>
-    <div v-show="component.isOpen">sdfsdf</div>
   </ul>
   </div>
 </template>
@@ -39,8 +38,9 @@ export default {
     }
   },
   methods: {
- toggle: function (){
+ toggle: function (e){
     //this.open=!this.open;
+    e.open=!e.open
  },
  // stopClick: function(e){
 //e.preventDefault();

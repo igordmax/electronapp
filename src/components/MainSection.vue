@@ -25,6 +25,7 @@
        v-bind:key="contFrames"
        v-show="!contFrames.controllerInputName && contFrames.controllerName==controller"
        @click="toggle(contFrames)">
+        {{contFrames.controllerSmth}}
         {{contFrames.controllerPinNames}}
         {{contFrames.controllerId}}
       </div> 
@@ -45,10 +46,12 @@ export default {
         {controllerInputName: "1", controllerName: "FirstController"},
         {controllerInputName: "2", controllerName: "FirstController"},
         {controllerId: "A464DIO", controllerName: "FirstController"},
+        {controllerSmth: "AO00000", controllerName: "FirstController"},
         {controllerPinNames: "D10000-D54544",controllerName: "FirstController"},
         {controllerInputName: "1", controllerName: "SecondController"},
         {controllerInputName: "2", controllerName: "SecondController"},
         {controllerId: "A49AIO", controllerName: "SecondController"},
+        {controllerSmth: "AO00001", controllerName: "SecondController"},
         {controllerPinNames: "A10000-A54544",controllerName: "SecondController"},
       ] 
     }
