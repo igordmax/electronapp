@@ -27,7 +27,6 @@
 
 <script>
 let i=1;
-
 export default {
   name: 'UpDownSelect1',
   data: function() {

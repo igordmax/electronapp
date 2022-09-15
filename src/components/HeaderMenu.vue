@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <ul class ="menu dropdown-content"
-    v-for="component in temporaryUpperMenuSection" 
+    v-for="(component) in temporaryUpperMenuSection" 
     v-bind:key="component.sectionName"
     @click="testing(component.ident)"
   >
@@ -9,7 +9,7 @@
     
       <li class="dropdown-content"
         v-show="component.isOpen && item.ident==component.ident"
-        v-for="item in temporarySectionsData" 
+        v-for="item  in temporarySectionsData" 
         v-bind:key="item.names">
       {{item.names}}
       </li>
@@ -24,7 +24,7 @@ export default {
   data: function () {
     return {
     upperMenuSection: [
-      {sectionName: "settings", ident:"settings", isOpen: true},
+      {sectionName: "settings", ident:"settings", isOpen: false},
       {sectionName: "functions", ident:"functions", isOpen: false}
   ],
 
