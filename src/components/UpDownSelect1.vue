@@ -1,6 +1,6 @@
 <template>
   <div class="ScrollSelect"
-       style="">
+>
     <label 
     id="UpDownContent" 
     class="UpDownTextSection">
@@ -70,7 +70,7 @@ export default {
     position: relative;
     height: 30px;
     width: 140px;
-    border-width: 2px solid;
+    border: 2px solid;
     border-radius: 3px;
     border-color: rgba(0, 0, 0, 0.16);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

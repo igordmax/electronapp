@@ -109,19 +109,6 @@ li.flexRightMenuItem {
     justify-content: space-between;
 }
 
-select.multipleSelect {
-    height: 30px;
-    width: 140px;
-    border-radius: 3px;
-    border-color: rgba(0, 0, 0, 0.16);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px; 
-}
-
 li.rightMenu {
     position: relative;
     top: 1px;

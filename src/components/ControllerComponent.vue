@@ -7,17 +7,17 @@
       </div>
     <!--controller rendering-->
     <ul class="element"
+       v-for="(controller) in temporaryNamesMassive" 
+       v-bind:key="controller"
        @click="makeActive(controller)"
-       :class="{'active-module': isActive}"
-       v-for="controller in temporaryNamesMassive" 
-       v-bind:key="controller">
+       :class="{'active-module': controller.isActive}">
       <div class="element-container">
     <!--inputs rendering-->
         <div
        class="input-output-style"
        v-for="item in temporaryElement" 
        v-bind:key="item.controllerInputName"
-       v-show="item.controllerInputName && item.controllerName==controller"
+       v-show="item.controllerInputName && item.controllerName==controller.controllerName"
        @click.stop="toggle(item)" >
        {{item.controllerInputName}}
         </div>
@@ -26,7 +26,7 @@
       <div class="frame-style"
        v-for="contFrames in temporaryElement" 
        v-bind:key="contFrames"
-       v-show="!contFrames.controllerInputName && contFrames.controllerName==controller"
+       v-show="!contFrames.controllerInputName && contFrames.controllerName==controller.controllerName"
        @click="toggle(contFrames)">
         {{contFrames.controllerSmth}}
         {{contFrames.controllerPinNames}}
@@ -41,10 +41,10 @@ export default {
     name: 'ControllerComponent',
     data: function() {
     return {
-      isActive: false,
     //array with controller names
       ControllerNamesMassive: [
-        "FirstController", "SecondController"
+        {controllerName:"FirstController"},
+        {controllerName:"SecondController"}
       ],
     //array with controller info
       controllerProperties: [
@@ -66,9 +66,10 @@ export default {
     toggle: function(e) {
       console.log(e); 
       },
-    makeActive: function() {
-      this.isActive=!this.isActive;
-      //this.classList.add('activeModule'); 
+    makeActive: function(e) {
+      e.isActive=!e.isActive;
+      //this.classList.add('activeModule');
+      console.log(e.isActive); 
       },
   //adding new controllers method
     userAdd: function() {
@@ -77,8 +78,10 @@ export default {
         controllerName: this.controllerProperties.controllerName,
        }
       );
-      if(this.ControllerNamesMassive.indexOf(this.controllerProperties.controllerName) == -1) {
-      this.ControllerNamesMassive.push(this.controllerProperties.controllerName)
+      
+      if (this.ControllerNamesMassive.indexOf(this.controllerProperties.controllerName) == -1) {
+      this.ControllerNamesMassive.push({
+        controllerName: this.controllerProperties.controllerName})
       console.log(this.controllerProperties);
       }
     }          

@@ -42,7 +42,9 @@ export default {
   methods: {
 //this method render menu points  
     toggle: function (e){
-      e.open=!e.open
+      e.open=!e.open;
+      console.log(e);
+      console.log(e.open);
     },
 //just testing method
     testing: function(e) {

@@ -1,7 +1,6 @@
 <template>
 <!--setting the opening function to the button-->
 <li :class="[isFolder ? 'folder' : 'file']">
- 
    <label id="clickToAct"  @click="stopClick"
    >
       <button :class="{open: open}"
@@ -9,16 +8,15 @@
       <!--<span >
       </span>-->
      </button> 
-      {{ model.name }} 
-
+      {{ model.name }}
     </label>
     <!--drawing the tree structure-->
     <ul  v-show="open" v-if="isFolder" :class="{open: open}">
       <TreeComponent
         v-for="(model, index) in model.children"
         @click="makeActive(model.name)"
-        :key="index"
-        :model="model">
+        :key=index
+        :model=model>
       </TreeComponent>
     </ul>
   </li>
@@ -55,6 +53,7 @@ export default {
       //alert(event.target.tagName)
     },
     makeActive: function(e) {
+      //e.active=!e.active;
       //document.getElementById("activeElement").id="clickToAct";
       //this.classList.add('activeElement');
       //console.log(this.classList);
