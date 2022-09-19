@@ -5,7 +5,7 @@
    <label id="clickToAct"  @click="stopClick"
    >
       <button :class="{open: open}"
-      @click="toggle">
+      @click.stop="toggle">
       <!--<span >
       </span>-->
      </button> 
@@ -47,10 +47,11 @@ export default {
       console.log(e.target.tagName);
 
     },
-    toggle: function () {
+    toggle: function (e) {
       if (this.isFolder) {
         this.open= !this.open;
       }
+      console.log(e.target.tagName);
       //alert(event.target.tagName)
     },
     makeActive: function(e) {
