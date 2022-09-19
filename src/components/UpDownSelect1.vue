@@ -1,5 +1,6 @@
 <template>
-  <div class="ScrollSelect">
+  <div class="ScrollSelect"
+       style="">
     <label 
     id="UpDownContent" 
     class="UpDownTextSection">
