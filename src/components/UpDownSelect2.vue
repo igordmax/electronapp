@@ -33,11 +33,6 @@
     data: function() {
      return{ 
       sectionsData: [10, 20, 30, 40, 50
-        //{names: "10"},
-        //{names: "20"},
-        //{names: "30"},
-        //{names: "40"},
-        //{names: "50"}
           ]
         }       
     },
