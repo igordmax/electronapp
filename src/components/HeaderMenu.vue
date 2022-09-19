@@ -1,12 +1,13 @@
 <template>
 <div class="container">
+  <!--menu sections rendering-->
   <ul class ="menu dropdown-content"
     v-for="(component) in temporaryUpperMenuSection" 
     v-bind:key="component.sectionName"
     @click="toggle(component)"
   >
     {{component.sectionName}}
-    
+  <!--rendering points of menu-->
       <li class="dropdown-content"
         v-show="component.open && item.ident==component.ident"
         v-for="item  in temporarySectionsData" 
@@ -22,11 +23,12 @@ export default {
   name: 'HeaderMenu',
   data: function () {
     return {
+  //names of menu sections
     upperMenuSection: [
-      {sectionName: "settings", ident:"settings", isOpen: false},
-      {sectionName: "functions", ident:"functions", isOpen: false}
+      {sectionName: "settings", ident:"settings"},
+      {sectionName: "functions", ident:"functions"}
   ],
-
+  //names of menu points with their idents
     sectionsData: [
       {names: "menu", ident:"settings"},
       {names: "info", ident:"settings"},
@@ -38,23 +40,17 @@ export default {
     }
   },
   methods: {
- toggle: function (e){
-    //this.open=!this.open;
-    e.open=!e.open
- },
- // stopClick: function(e){
-//e.preventDefault();
-//},
-stopClick: function(event){
-event.stopPropagation();
-},
+//this method render menu points  
+    toggle: function (e){
+      e.open=!e.open
+    },
+//just testing method
     testing: function(e) {
-console.log(e);
- this.upperMenuSection.isOpen=!this.upperMenuSection.isOpen;
- console.log(this.upperMenuSection.isOpen);
-  } 
+      console.log(e);
+    } 
 },
   computed: {
+//temporary arrays for rendering
     temporaryUpperMenuSection () {
       return this.upperMenuSection
     },

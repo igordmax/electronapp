@@ -1,16 +1,19 @@
 <template>
   <div class="container">
+    <!--temporary elements, testing adding controller-->
       <div>
         <input v-model="controllerProperties.controllerInputName" />
         <input v-model="controllerProperties.controllerName" />
         <button  v-on:click="userAdd">Add</button>
       </div>
+    <!--controller rendering-->
     <ul class="element"
        @click="makeActive(controller)"
        :class="{'active-module': isActive}"
        v-for="controller in temporaryNamesMassive" 
        v-bind:key="controller">
       <div class="element-container">
+    <!--inputs rendering-->
         <div
        class="input-output-style"
        v-for="item in temporaryElement" 
@@ -20,6 +23,7 @@
        {{item.controllerInputName}}
         </div>
       </div>
+    <!--rendering controller info-->
       <div class="frame-style"
        v-for="contFrames in temporaryElement" 
        v-bind:key="contFrames"
@@ -39,9 +43,11 @@ export default {
   data: function() {
     return {
       isActive: false,
+    //array with conntroller names
       ControllerNamesMassive: [
         "FirstController", "SecondController"
       ],
+    //array with controller info
       controllerProperties: [
         {controllerInputName: "1", controllerName: "FirstController"},
         {controllerInputName: "2", controllerName: "FirstController"},
@@ -57,6 +63,7 @@ export default {
     }
   },
   methods: {
+  //temporary testing methods
     toggle: function(e) {
       console.log(e); 
       },
@@ -64,6 +71,7 @@ export default {
       this.isActive=!this.isActive;
       //this.classList.add('activeModule'); 
       },
+  //adding new controllers method
     userAdd: function() {
       this.controllerProperties.push({
         controllerInputName: this.controllerProperties.controllerInputName,
@@ -77,6 +85,7 @@ export default {
     }          
   },
   computed: {
+  //temporary arrays for rendering
     temporaryElement() {
       return this.controllerProperties;
     },

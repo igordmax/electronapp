@@ -30,19 +30,14 @@
  <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
  </select>
     </li >
+    <!--rendering updown selectors components-->
         <li class="flexRightMenuItem rightMenu">
         <div> название селектора
- <!--<select class="multipleSelect" :model="selectedItem" size="1" multiple>
- <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
- </select>-->
          <UpDownSelect1></UpDownSelect1>
- </div>
-         <div> название селектора
- <!--<select class="multipleSelect" :model="selectedItem" size="1" multiple>
- <option v-for="item in items" v-bind:key="item.name">{{item.name}}</option>
- </select>-->
-        <UpDownSelect2></UpDownSelect2> 
- </div>
+        </div>
+        <div> название селектора
+          <UpDownSelect2></UpDownSelect2> 
+        </div>
     </li>
 
  </ul>
@@ -59,6 +54,7 @@ export default {
     },
     data:function() {
         return{
+//selectors info arrays
     items:[
         {name:'name1', id:23442},
         {name:'name1', id:12342},
