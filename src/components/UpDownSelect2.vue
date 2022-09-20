@@ -3,6 +3,7 @@
       <label 
       id="UpDownContent2" 
       class="UpDownTextSection">
+      {{currentElement}}
       </label>
       <button
       @click="scrollUp" 
@@ -32,8 +33,7 @@
     name: 'UpDownSelect2',
     data: function() {
      return{ 
-      sectionsData: [10, 20, 30, 40, 50
-          ]
+      sectionsData: [10, 20, 30, 40, 50]
         }       
     },
     methods: {
@@ -51,6 +51,11 @@
         console.log(this.sectionsData[i]);
         document.getElementById("UpDownContent2").innerHTML=this.sectionsData[i];
         }
+      }
+    },
+    computed:{
+      currentElement() {
+        return this.sectionsData[i];
       }
     }
   }

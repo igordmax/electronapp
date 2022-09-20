@@ -4,6 +4,7 @@
     <label 
     id="UpDownContent" 
     class="UpDownTextSection">
+    {{currentElement}}
     </label>
     <button
     @click="scrollUp" 
@@ -27,18 +28,12 @@
 </template>
 
 <script>
-let i=1;
+let i=3;
 export default {
   name: 'UpDownSelect1',
   data: function() {
    return{ 
-    sectionsData: [10, 20, 30, 40, 50
-      //{names: "10"},
-      //{names: "20"},
-      //{names: "30"},
-      //{names: "40"},
-      //{names: "50"}
-        ]
+    sectionsData: [10, 20, 30, 40, 50]
       }       
   },
   methods: {
@@ -56,6 +51,11 @@ export default {
       console.log(this.sectionsData[i]);
       document.getElementById("UpDownContent").innerHTML=this.sectionsData[i];
       }
+    }
+  },
+  computed:{
+    currentElement() {
+      return this.sectionsData[i];
     }
   }
 }

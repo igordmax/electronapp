@@ -1,36 +1,36 @@
 <template>
         <!--temporary elements, testing adding controller-->
         <div>
-        <input v-model="controllerProperties.controllerInputName" />
-        <input v-model="controllerProperties.controllerName" />
+        <input v-model="moduleProperties.moduleInputName" />
+        <input v-model="moduleProperties.moduleName" />
         <button  v-on:click="userAdd">Add</button>
       </div>
     <!--controller rendering-->
     <ul class="element"
-       v-for="(controller) in temporaryNamesMassive" 
-       v-bind:key="controller"
-       @click="makeActive(controller)"
-       :class="{'active-module': controller.isActive}">
+       v-for="(module) in temporaryNamesMassive" 
+       v-bind:key="module"
+       @click="makeActive(module)"
+       :class="{'active-module': module.isActive}">
       <div class="element-container">
     <!--inputs rendering-->
         <div
        class="input-output-style"
        v-for="item in temporaryElement" 
-       v-bind:key="item.controllerInputName"
-       v-show="item.controllerInputName && item.controllerName==controller.controllerName"
+       v-bind:key="item.moduleInputName"
+       v-show="item.moduleInputName && item.moduleName==module.moduleName"
        @click.stop="toggle(item)" >
-       {{item.controllerInputName}}
+       {{item.moduleInputName}}
         </div>
       </div>
     <!--rendering controller info-->
       <div class="frame-style"
        v-for="contFrames in temporaryElement" 
        v-bind:key="contFrames"
-       v-show="!contFrames.controllerInputName && contFrames.controllerName==controller.controllerName"
+       v-show="!contFrames.moduleInputName && contFrames.moduleName==module.moduleName"
        @click="toggle(contFrames)">
-        {{contFrames.controllerSmth}}
-        {{contFrames.controllerPinNames}}
-        {{contFrames.controllerId}}
+        {{contFrames.moduleSmth}}
+        {{contFrames.modulePinNames}}
+        {{contFrames.moduleId}}
       </div> 
     </ul> 
 </template>
@@ -38,26 +38,26 @@
 <script>
     
 export default {
-    name: 'ControllerComponent',
+    name: 'ModuleComponent',
     data: function() {
     return {
     //array with controller names
-      ControllerNamesMassive: [
-        {controllerName:"FirstController"},
-        {controllerName:"SecondController"}
+    moduleNamesMassive: [
+        {moduleName:"FirstModule"},
+        {moduleName:"SecondModule"}
       ],
     //array with controller info
-      controllerProperties: [
-        {controllerInputName: "1", controllerName: "FirstController"},
-        {controllerInputName: "2", controllerName: "FirstController"},
-        {controllerId: "A464DIO", controllerName: "FirstController"},
-        {controllerSmth: "AO00000", controllerName: "FirstController"},
-        {controllerPinNames: "D10000-D54544",controllerName: "FirstController"},
-        {controllerInputName: "1", controllerName: "SecondController"},
-        {controllerInputName: "2", controllerName: "SecondController"},
-        {controllerId: "A49AIO", controllerName: "SecondController"},
-        {controllerSmth: "AO00001", controllerName: "SecondController"},
-        {controllerPinNames: "A10000-A54544",controllerName: "SecondController"},
+    moduleProperties: [
+        {moduleInputName: "1", moduleName: "FirstModule"},
+        {moduleInputName: "2", moduleName: "FirstModule"},
+        {moduleId: "A464DIO", moduleName: "FirstModule"},
+        {moduleSmth: "AO00000", moduleName: "FirstModule"},
+        {modulePinNames: "D10000-D54544",moduleName: "FirstModule"},
+        {moduleInputName: "1", moduleName: "SecondModule"},
+        {moduleInputName: "2", moduleName: "SecondModule"},
+        {moduleId: "A49AIO", moduleName: "SecondModule"},
+        {moduleSmth: "AO00001", moduleName: "SecondModule"},
+        {modulePinNames: "A10000-A54544",moduleName: "SecondModule"},
       ] 
     }
   },
@@ -73,29 +73,29 @@ export default {
       },
   //adding new controllers method
     userAdd: function() {
-      this.controllerProperties.push({
-        controllerInputName: this.controllerProperties.controllerInputName,
-        controllerName: this.controllerProperties.controllerName,
+      this.moduleProperties.push({
+        moduleInputName: this.moduleProperties.moduleInputName,
+        moduleName: this.moduleProperties.moduleName,
        }
       );
       
-      if (this.ControllerNamesMassive.indexOf(this.controllerProperties.controllerName) == -1) {
-      this.ControllerNamesMassive.push({
-        controllerName: this.controllerProperties.controllerName})
-      console.log(this.controllerProperties);
+      if (this.moduleNamesMassive.indexOf(this.moduleProperties.moduleName) == -1) {
+      this.moduleNamesMassive.push({
+        moduleName: this.moduleProperties.moduleName})
+      console.log(this.moduleProperties);
       }
     }          
   },
   computed: {
   //temporary arrays for rendering
     temporaryElement() {
-      return this.controllerProperties;
+      return this.moduleProperties;
     },
     temporaryNamesMassive() {
-      return this.ControllerNamesMassive;
+      return this.moduleNamesMassive;
     },
     InputNameFilter () {
-      return this.controllerProperties.controllerInputName;
+      return this.moduleProperties.moduleInputName;
     },
     //noInputsMassive () {
       //for (let j=1; j<this.controllerProperties.length;j++){

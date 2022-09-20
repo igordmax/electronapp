@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <ControllerComponent></ControllerComponent>
+    <ModuleComponent></ModuleComponent>
   </div>
 </template>
 
 <script>
-import ControllerComponent from './ControllerComponent.vue';
+import ModuleComponent from './ModuleComponent.vue';
 export default {
   name: 'MainSection',
   components: {
-  ControllerComponent
+    ModuleComponent
   }, 
 }
 </script>
