@@ -11,10 +11,13 @@
       <li class="dropdown-content"
         v-show="component.open && item.ident==component.ident"
         v-for="item  in temporarySectionsData" 
-        v-bind:key="item.names">
+        v-bind:key="item.names"
+        @click.stop="testing(item)"
+        @mouseout="toggle(component)">
       {{item.names}}
       </li>
   </ul>
+  <ul class ="menu"></ul>
   </div>
 </template>
 
@@ -25,17 +28,21 @@ export default {
     return {
   //names of menu sections
     upperMenuSection: [
-      {sectionName: "settings", ident:"settings"},
-      {sectionName: "functions", ident:"functions"}
+      {sectionName: "Файл", ident:"Файл"},
+      {sectionName: "Правка", ident:"Правка"},
+      {sectionName: "Вставка", ident:"Вставка"},
+      {sectionName: "Вид", ident:"Вид"},
+      {sectionName: "Окно", ident:"Окно"},
+      {sectionName: "Справка", ident:"Справка"},
   ],
   //names of menu points with their idents
     sectionsData: [
-      {names: "menu", ident:"settings"},
-      {names: "info", ident:"settings"},
-      {names: "АААААААААААААААААААААА", ident:"settings"},
-      {names: "menu1", ident:"functions"},
-      {names: "info1", ident:"functions"},
-      {names: "ААА1ААА1АА1АА", ident:"functions"}
+      {names: "menu", ident:"Файл"},
+      {names: "info", ident:"Правка"},
+      {names: "АААААААААА", ident:"Правка"},
+      {names: "menu1", ident:"Вставка"},
+      {names: "info1", ident:"Вид"},
+      {names: "ААА1ААА1АА1АА", ident:"Справка"}
   ]
     }
   },
@@ -67,26 +74,23 @@ export default {
   div.container {
 position: relative;
   }
-  li.dropdown-content{
+
+  li.dropdown-content {
+
   position: relative;
-  /*transform: scale(3);*/
   z-index: 1;
-  /*padding-top: 16px;*/
   cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*-ms-flex: 1 0 0;
-    flex: 1 0 0;*/
     border: 1px solid;
-    border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
-    /*padding: 3px;*/
     background: #FFFFFF;
   }
   .headerMenuStyle{
+
     position: absolute;
   left: 0%;
   right: 0.07%;
@@ -99,7 +103,9 @@ position: relative;
   ul.menu {
     margin: 0; /* Обнуляем значение отступов */
     padding: 0px; /* Значение полей */
+    height: 24px;
     cursor: pointer;
+    position: relative;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
@@ -110,21 +116,30 @@ position: relative;
     border: 1px solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
-    padding: 3px; 
+
   }
  
-    ul.menu li {
+    /*ul.menu li {
     /*display: inline;
     margin-right: 0px;*/
-    border: 1px solid;
+    /*border: 1px solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.0803);
-    padding: 3px; 
-   }
+
+   }*/
    ul.menu li:hover{
   background: rgba(218,235,247,1);
 }
    ul.menu li:active{
+    background: rgba(0, 0, 0, 0.0373);
+    /* Light/Fill Color/Subtle/Secondary */
+    border: 1px solid rgba(0, 0, 0, 0.0373);
+    border-radius: 4px;
+   }
+   ul.menu:hover{
+  background: rgba(218,235,247,1);
+}
+   ul.menu:active{
     background: rgba(0, 0, 0, 0.0373);
     /* Light/Fill Color/Subtle/Secondary */
     border: 1px solid rgba(0, 0, 0, 0.0373);

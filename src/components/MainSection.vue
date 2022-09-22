@@ -9,7 +9,7 @@ import ModuleComponent from './ModuleComponent.vue';
 export default {
   name: 'MainSection',
   components: {
-    ModuleComponent
+    ModuleComponent,
   }, 
 }
 </script>

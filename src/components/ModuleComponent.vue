@@ -36,7 +36,13 @@
 </template>
 
 <script>
-    
+ //let fs = require("fs");
+// let text = fs.readFileSync("./src/DataArrays/test.txt");
+ //let textByLine=text.split("\n")
+ let fs = require("fs");
+fs.readFile("./src/DataArrays/test.txt", function(text){
+    let textByLine = text.split("\n")
+});   
 export default {
     name: 'ModuleComponent',
     data: function() {
@@ -69,7 +75,7 @@ export default {
     makeActive: function(e) {
       e.isActive=!e.isActive;
       //this.classList.add('activeModule');
-      console.log(e.isActive); 
+      console.log(e.isActive);
       },
   //adding new controllers method
     userAdd: function() {
@@ -78,12 +84,13 @@ export default {
         moduleName: this.moduleProperties.moduleName,
        }
       );
-      
-      if (this.moduleNamesMassive.indexOf(this.moduleProperties.moduleName) == -1) {
+      //if (this.moduleNamesMassive.find(module => module.moduleName==this.moduleProperties.moduleName)) {
       this.moduleNamesMassive.push({
         moduleName: this.moduleProperties.moduleName})
       console.log(this.moduleProperties);
-      }
+      console.log(this.moduleNamesMassive.moduleName)
+      console.log(this.moduleProperties.moduleName)
+      //}
     }          
   },
   computed: {
