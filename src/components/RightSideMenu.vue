@@ -133,8 +133,7 @@ export default {
                         .catch(function(error) {
                             console.log(error);
                         });
-                };
-                axios.post
+                }
             }
         } 
     }   

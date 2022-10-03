@@ -39,10 +39,7 @@
  //let fs = require("fs");
 // let text = fs.readFileSync("./src/DataArrays/test.txt");
  //let textByLine=text.split("\n")
- let fs = require("fs");
-fs.readFile("./src/DataArrays/test.txt", function(text){
-    let textByLine = text.split("\n")
-});   
+  
 export default {
     name: 'ModuleComponent',
     data: function() {
