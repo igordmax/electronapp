@@ -1,4 +1,15 @@
 <template>
+    <div>
+        <form method="post">
+                         номер аккаунта : 
+            <input type="text" id="name" />
+            <br /><br />
+                         Пароль:
+            <input type="text" id="pwd" />
+            <br /><br />
+            <input type="button" value="Отправить" @click="submit">
+        </form>
+    </div>
 <ul>
     <li class="rightMenu">
         <div> название селектора</div>
@@ -44,7 +55,28 @@
 </template>
 
 <script>
+ //   let file="file:///C:/vue projects/electronapp/src/DataArrays/test.txt"
+//alert(fileReading(file));
+//function fileReading (file)
+//{
+  //  var rawFile = new XMLHttpRequest();
+  //  rawFile.open("GET", file, false);
+  //  rawFile.onreadystatechange = function ()
+  //  {
+  //      if(rawFile.readyState === 4)
+  //      {
+ //           if(rawFile.status === 200 || rawFile.status == 0)
+ //           {
+ //               var allText = rawFile.responseText;
+ //               alert(allText);
+ //           }
+ //       }
+ //   }
+ //   rawFile.send(null);
+//}  
+import axios from 'axios'       
 import UpDownSelect1 from './UpDownSelect1.vue';
+//import text1 from "./text.txt";
 import UpDownSelect2 from './UpDownSelect2.vue';
 export default {
     name: 'RightSideMenu',
@@ -73,16 +105,40 @@ export default {
         {name2:'name3', id:234768},
         {name2:'name3', id:234768},
        ],
-
-       selectedItem:'поле для имени'
+       
+       selectedItem:'поле для имени',
+      // text: text1
     }
     },
     methods: {
     testing: function(e) {
       console.log(e); 
-      }         
-    }
-}
+      },
+      submit: function() {
+                var name = document.getElementById("name").value;
+                var pwd = document.getElementById("pwd").value;
+                if (name == "" || pwd == "") {
+                    alert(
+                        'Учетная запись и пароль не могут быть пустыми')
+                } else {
+                    // Отправляем данные на сервер
+                    axios.post('http://127.0.0.1:3000/login', {
+                            name: name,
+                            pwd: pwd
+                        })
+                        .then(function(response) {
+                            // Сервер возвращает данные ответа в случае успеха
+                            alert(response.data)
+                        })
+                        .catch(function(error) {
+                            console.log(error);
+                        });
+                };
+                axios.post
+            }
+        } 
+    }   
+
 </script>
 
 <style>
